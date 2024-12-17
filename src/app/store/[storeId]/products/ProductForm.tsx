@@ -54,19 +54,12 @@ export function ProductForm({ product, categories, colors }: ProductFormProps) {
 	const form = useForm<IProductInput>({
 		mode: 'onChange',
 		values: {
-			title: product?.title || '',
-			description: product?.description || '',
-			images: product?.images || [],
-			price: product?.price || 0,
-			categoryId: product?.category.id || '',
-			colorId: product?.color.id || ''
-		} || {
-			title: '',
-			description: '',
-			images: [],
-			price: 0,
-			categoryId: '',
-			colorId: ''
+			title: product ? product.title : '',
+			description: product ? product.description : '',
+			images: product ? product.images : [],
+			price: product ? product.price : 0,
+			categoryId: product ? product.category.id : '',
+			colorId: product ? product.color.id : ''
 		}
 	})
 
