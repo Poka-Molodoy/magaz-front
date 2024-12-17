@@ -40,13 +40,10 @@ export function ColorForm({ color }: ColorFormProps) {
 	const form = useForm<IColorInput>({
 		mode: 'onChange',
 		values: {
-			name: color?.name || '',
-			value: color?.value || ''
-		} || {
-			name: '',
-			value: ''
+			name: color ? color.name : '',
+			value: color ? color.value : ''
 		}
-	})
+	});
 
 	const onSubmit: SubmitHandler<IColorInput> = data => {
 		if (color) updateColor(data)
